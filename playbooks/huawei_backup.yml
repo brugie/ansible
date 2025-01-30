@@ -1,0 +1,20 @@
+---
+- name: Backup Configurations of Huawei Routers
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Ensure backup directory exists
+      ansible.builtin.file:
+        path: "/opt/backups"
+        state: directory
+        mode: '0755'
+
+    - name: Retrieve configuration from Huawei device
+      huawei.cloudengine.ce_config:
+        backup: yes
+      register: config_output
+
+    - name: Save configuration to JSON file
+      ansible.builtin.copy:
+        content: "{{ config_output.backup_data | to_json }}"
+        dest: "/path/to/backups/{{ inventory_hostname }}_{{ ansible_date_time.iso8601 }}.json"
