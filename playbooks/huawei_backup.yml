@@ -10,7 +10,7 @@
         mode: '0755'
 
     - name: Retrieve configuration from Huawei device
-      community.network.ce_command:
+      ansible.netcommon.cli_command:
         command: display current-configuration
       register: config_output
 
