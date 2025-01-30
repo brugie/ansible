@@ -17,4 +17,4 @@
     - name: Save configuration to JSON file
       ansible.builtin.copy:
         content: "{{ config_output.backup_data | to_json }}"
-        dest: "/path/to/backups/{{ inventory_hostname }}_{{ ansible_date_time.iso8601 }}.json"
+        dest: "/opt/backups/{{ inventory_hostname }}_{{ ansible_date_time.iso8601 }}.json"
