@@ -10,8 +10,8 @@
         mode: '0755'
 
     - name: Retrieve configuration from Huawei device
-      community.network.ce_config:
-        backup: true
+      community.network.ce_command:
+        command: display current-configuration
       register: config_output
 
     - name: Save configuration to JSON file
