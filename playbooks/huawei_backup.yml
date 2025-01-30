@@ -1,6 +1,6 @@
 ---
 - name: Backup Configurations of Huawei Routers
-  hosts: routers
+  hosts: huawei_routers
   gather_facts: no
   tasks:
     - name: Ensure backup directory exists
