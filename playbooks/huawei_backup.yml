@@ -10,7 +10,7 @@
         mode: '0755'
 
     - name: Retrieve configuration from Huawei device
-      huawei.cloudengine.ce_config:
+      community.network.ce_config:
         backup: yes
       register: config_output
 
